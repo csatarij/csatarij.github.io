@@ -12,6 +12,7 @@ highlighter: rouge
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
+  - jekyll-paginate
 
 paginate: 10
 paginate_path: "/posts/:num/"

@@ -1,7 +1,5 @@
 ---
 ---
-
-{% include custom-head.html %}
 <style>
   :root {
     --bg-color: #ffffff;
@@ -32,6 +30,7 @@
     border-bottom: 1px solid var(--border-color);
     padding: 20px 0;
     margin-bottom: 40px;
+    text-align: center;
   }
 
   header h1 a {
@@ -42,6 +41,17 @@
   header p {
     color: #666;
     font-size: 1.1em;
+  }
+
+  .nav-links {
+    margin-top: 20px;
+  }
+
+  .nav-links a {
+    color: var(--link-color);
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1em;
   }
 
   main { min-height: calc(100vh - 200px); }

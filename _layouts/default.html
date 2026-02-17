@@ -1,7 +1,8 @@
 ---
 <header>
   <div class="container">
-    <h1><a href="/">{{ site.name | default: site.title }}</a></h1>
+    <p class="prompt">visitor@{{ site.name | default: "blog" }}:~$ ./welcome.sh</p>
+    <h1><a href="/">{{ site.name | default: site.title }}</a> <span class="command">>ver<</span></h1>
     <p>{{ site.description }}</p>
     <nav class="nav-links">
       <a href="/">Blog</a>
@@ -14,11 +15,23 @@
 </header>
 
 <main class="container">
-  {{ content }}
+  <div class="terminal-box">
+    <div class="terminal-header">
+      <div class="terminal-dot red"></div>
+      <div class="terminal-dot yellow"></div>
+      <div class="terminal-dot green"></div>
+      <p class="terminal-title">{{ page.title | default: 'Terminal' }}</p>
+    </div>
+    <div class="terminal-body">
+      {{ content }}
+    </div>
+  </div>
 </main>
 
 <footer>
-  <div class="container">
-    <p><a href="/about/">About</a> &bull; <a href="/feed.xml">RSS</a></p>
+  <div class="terminal-box" style="box-shadow: none; border: none;">
+    <div class="terminal-body" style="padding: 15px 24px;">
+      <p><a href="/about/">About</a> &bull; <a href="/feed.xml">RSS</a> &bull; <span style="color: #8b949e;">Powered by Jekyll + GitHub Pages</span></p>
+    </div>
   </div>
 </footer>

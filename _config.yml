@@ -23,8 +23,16 @@ defaults:
     values:
       layout: "post"
       author: "csatarij"
+  - scope:
+      path: ""
+      type: "topics"
+    values:
+      layout: "topic"
 
 collections:
   tags:
     output: true
     permalink: /tags/:name/
+  topics:
+    output: true
+    permalink: /:slug/

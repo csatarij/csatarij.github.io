@@ -1,0 +1,30 @@
+name: My Blog
+title: csatarij's blog
+description: Tech thoughts and ideas
+baseurl: ""
+url: "https://csatarij.github.io"
+
+permalink: /:categories/:title/
+
+markdown: kramdown
+highlighter: rouge
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+paginate: 10
+paginate_path: "/posts/:num/"
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "csatarij"
+
+collections:
+  tags:
+    output: true
+    permalink: /tags/:name/

@@ -1,0 +1,14 @@
+---
+layout: default
+title: "{{ tag.name }}"
+permalink: /tags/{{ tag | slugify }}/
+---
+
+<h1>Tagged: {{ tag.name }}</h1>
+
+{% for post in site.tags[tag.name] %}
+<div class="post-preview">
+  <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+  <p class="meta">{{ post.date | date: "%B %d, %Y" }}</p>
+</div>
+{% endfor %}

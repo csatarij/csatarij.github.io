@@ -1,0 +1,19 @@
+---
+layout: default
+---
+<header>
+  <div class="container">
+    <h1><a href="/">{{ site.name | default: site.title }}</a></h1>
+    <p>{{ site.description }}</p>
+  </div>
+</header>
+
+<main class="container">
+  {{ content }}
+</main>
+
+<footer>
+  <div class="container">
+    <p><a href="/about/">About</a> &bull; <a href="/feed.xml">RSS</a></p>
+  </div>
+</footer>

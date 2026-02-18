@@ -132,18 +132,20 @@ permalink: /
     position: sticky;
     top: 20px;
     height: fit-content;
-    background: var(--code-bg);
-    padding: 20px;
-    border-radius: 6px;
-    border: 1px solid var(--border-color);
   }
 
   .topics-sidebar h3 {
     margin-top: 0;
+    margin-bottom: 20px;
     color: var(--link-color);
-    font-size: 1.1em;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 10px;
+    font-size: 1.3em;
+  }
+
+  .topics-list {
+    background: var(--code-bg);
+    padding: 20px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
   }
 
   .topic-preview {

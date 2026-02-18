@@ -15,10 +15,14 @@ permalink: /topics/
     {% if topic.updated %}
     <p class="meta">Last updated: {{ topic.updated | date: "%B %d, %Y" }}</p>
     {% endif %}
+    {% assign topic_full_words = topic.content | strip_html | split: ' ' | size %}
     {% if topic.excerpt %}
-    <p>{{ topic.excerpt | strip_html | truncatewords: 30 }}</p>
+    <p>{{ topic.excerpt | strip_html | truncatewords: 30 }}{% if topic_full_words > 30 %}...{% endif %}</p>
     {% else %}
-    <p>{{ topic.content | strip_html | truncatewords: 30 }}</p>
+    <p>{{ topic.content | strip_html | truncatewords: 30 }}{% if topic_full_words > 30 %}...{% endif %}</p>
+    {% endif %}
+    {% if topic_full_words > 30 %}
+    <p class="read-more"><a href="{{ topic.url }}">Read more &rarr;</a></p>
     {% endif %}
   </div>
   {% endfor %}
@@ -34,4 +38,19 @@ permalink: /topics/
   .topic-card h2 { margin-top: 0; }
   .topic-card h2 a { text-decoration: none; color: var(--text-color); }
   .topic-card .meta { color: #888; font-size: 0.9em; }
+
+  .read-more {
+    margin: 10px 0 0 0;
+  }
+
+  .read-more a {
+    text-decoration: none;
+    color: var(--link-color);
+    font-size: 0.9em;
+  }
+
+  .read-more a:hover {
+    color: var(--prompt-color);
+    text-decoration: underline;
+  }
 </style>

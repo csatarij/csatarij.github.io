@@ -91,7 +91,7 @@ permalink: /
   .post-card {
     border: 1px solid var(--border-color);
     border-left: 3px solid var(--code-bg);
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     padding: 20px;
     border-radius: 6px;
     background: var(--code-bg);
@@ -105,7 +105,7 @@ permalink: /
 
   .post-card h2 {
     margin-top: 0;
-    font-size: 1.3em;
+    font-size: 1.2em;
   }
 
   .post-card h2 a {
@@ -119,8 +119,8 @@ permalink: /
 
   .post-card .meta {
     color: var(--muted-color);
-    font-size: 13px;
-    margin: 5px 0 10px 0;
+    font-size: 12px;
+    margin: 4px 0 8px 0;
   }
 
   .post-card .meta::before {
@@ -142,24 +142,28 @@ permalink: /
   }
 
   .topics-list {
-    background: var(--code-bg);
-    padding: 20px;
-    border-radius: 6px;
-    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
   }
 
   .topic-preview {
-    padding: 15px 0;
-    border-bottom: 1px solid var(--border-color);
+    border: 1px solid var(--border-color);
+    border-left: 3px solid var(--code-bg);
+    padding: 20px;
+    border-radius: 6px;
+    background: var(--code-bg);
+    transition: all 0.2s;
   }
 
-  .topic-preview:last-child {
-    border-bottom: none;
+  .topic-preview:hover {
+    border-left-color: var(--link-color);
+    transform: translateX(5px);
   }
 
   .topic-preview h4 {
-    margin: 0 0 5px 0;
-    font-size: 1em;
+    margin: 0 0 4px 0;
+    font-size: 1.1em;
   }
 
   .topic-preview h4 a {
@@ -175,6 +179,16 @@ permalink: /
     margin: 5px 0;
     font-size: 0.9em;
     color: var(--muted-color);
+  }
+
+  .topic-preview .meta-small {
+    font-size: 11px !important;
+    margin: 4px 0 8px 0;
+  }
+
+  .topic-preview .meta-small::before {
+    content: "$ ";
+    color: var(--prompt-color);
   }
 
   .meta-small {

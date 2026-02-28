@@ -1,7 +1,7 @@
 ---
 slug: ollama
 title: ollama @ Home
-updated: 2026-02-18
+updated: 2026-02-28
 tags: [ai, learning]
 ---
 
@@ -59,7 +59,7 @@ glm-4.7-flash:latest    d1a8a26252f1    22 GB    100% GPU     32768      2 minut
 
 ## Context window
 
-Started at 32k - way too low. Conversations kept going around fixing bugs, causing regressions. Also compared chat context usage with cloud models. Increased to 96k. Works better.
+Started at 32k - way too low. Conversations kept going around fixing bugs, causing regressions. Also compared chat context usage with cloud models. Increased to 96k. Works better but 24 GB RAM is not enough
 
 In opencode.jsonc:
 ```json
@@ -70,13 +70,32 @@ In opencode.jsonc:
       "models": {
         "glm-4.7-flash": {
           "name": "glm-4.7-flash",
-          "contextWindow": 98304
+          "contextWindow": 32768
+        },
+        "glm-4.7-flash-96k": {
+          "name": "glm-4.7-flash-96k",
+          "contextWindow": 96000
         },
       }
     }
   }
 }
 ```
+```bash
+a@b:~$ ollama show glm-4.7-flash --modelfile > Modelfile
+a@b:~$ nano Modelfile
+[Adding "PARAMETER num_ctx 96000"]
+a@b:~$ ollama create glm-4.7-flash-96k -f Modelfile
+```
+However it shows CPU usage:
+
+```bash
+a@b:~$ ollama ps
+NAME                        ID              SIZE     PROCESSOR          CONTEXT    UNTIL
+glm-4.7-flash-96k:latest    3e5716da4864    29 GB    17%/83% CPU/GPU    96000      3 minutes from now
+```
+
+This became then incredibly slow. According to Claude, the limit I can get with this GPU is 48k.
 
 ## Tool usage experience
 
